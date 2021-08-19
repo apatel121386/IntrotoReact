@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
 import UserInfo from '../components/UserInfo';
+
 
 export default class Users extends Component {
     constructor(props){
@@ -24,7 +26,7 @@ export default class Users extends Component {
     render() {
         return (
             <div>
-                This is the Users Page.
+                <Link to='/create-user' className='btn btn-success'> Create User</Link>
                 <div className='row'>
                     {this.state.users.map((u) =><UserInfo user={u} />)}
                 </div>

@@ -3,14 +3,17 @@ import { Switch, Route} from 'react-router-dom';
 import Navbar from './components/Navbar';
 import About from './views/About';
 import Home from './views/Home';
+import Posts from './views/Posts';
 import Users from './views/Users';
+import CreateUser from './views/CreateUser';
+import CreatePost from './views/CreatePost';
 
 export default class App extends Component {
   constructor(props){
     super(props);
-    console.log('Component Constructing...')
+    // console.log('Component Constructing...')
     this.state = {
-      myName: 'Brian',
+      myName: 'Ankit',
       racers: []
     }
   }
@@ -23,7 +26,7 @@ export default class App extends Component {
   }
 
   componentDidMount(){
-    console.log('Component Did Mount...')
+    // console.log('Component Did Mount...')
     fetch('https://ergast.com/api/f1/2021/10/driverStandings.json')
       .then(res => res.json())
       .then(data => {
@@ -35,7 +38,7 @@ export default class App extends Component {
   }
 
   render() {
-    console.log('Component Rendering...')
+    // console.log('Component Rendering...')
     const myName = this.state.myName;
     return (
       <div>
@@ -50,6 +53,15 @@ export default class App extends Component {
             </Route>
             <Route exact path='/users'>
               <Users />
+            </Route>
+            <Route exact path='/posts'>
+              <Posts />
+            </Route>
+            <Route exact path='/create-user'>
+              <CreateUser />
+            </Route>
+            <Route exact path='/create-post'>
+              <CreatePost />
             </Route>
           </Switch>
         </div>
